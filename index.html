@@ -1,8 +1,123 @@
-<!DOCTYPE html>
+/* Touch-friendly improvements */
+@media (hover: none) {
+.nav-link:hover {
+transform: none;
+}
+
+.feature-box:hover {
+transform: none;
+}
+
+a, .nav-link, .feature-box, .tag, .contact-card, .project-card, .sidebar-note {
+transition: none;
+}
+
+.contact-card, .feature-box, .nav-link, .logo, .tag {
+/* Make touch targets at least 44px */
+min-height: 44px;
+}
+
+.tag {
+padding: var(--spacing-sm) var(--spacing-md);
+margin-bottom: var(--spacing-sm);
+}
+
+/* Active state for touch */
+a:active, .nav-link:active, .logo:active, .contact-card:active, .feature-box:active {
+opacity: 0.7;
+}
+}
+
+/* Ensure proper input device detection */
+@media (hover: hover) {
+a:hover, .nav-link:hover, .feature-box:hover, .contact-card:hover {
+/* Keep hover effects for pointer devices */
+}
+}        /* Smaller screen refinements */
+@media (max-width: 480px) {
+:root {
+--spacing-xl: 2rem;
+--spacing-xxl: 4rem;
+}
+
+.container {
+padding: 0 var(--spacing-sm);
+}
+
+h1 {
+font-size: 2rem;
+}
+
+h2 {
+font-size: 1.5rem;
+}
+
+h3 {
+font-size: 1.2rem;
+}
+
+p {
+font-size: 1rem;
+}
+
+.masthead {
+padding: var(--spacing-md) 0;
+margin-bottom: var(--spacing-lg);
+}
+
+.logo {
+font-size: 1.2rem;
+}
+
+.hero {
+padding: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.lead-in {
+font-size: 0.75rem;
+}
+
+.hero-subtitle {
+font-size: 1.1rem;
+margin: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.pull-quote {
+font-size: 1.2rem;
+}
+
+.pull-quote::before {
+left: -15px;
+font-size: 3rem;
+}
+
+.feature-box {
+padding: var(--spacing-md);
+}
+
+.section-title-container {
+margin-bottom: var(--spacing-md);
+}
+
+.section-number {
+font-size: 1rem;
+}
+
+.contact-card {
+padding: var(--spacing-lg);
+}
+
+.article {
+padding: 0;
+}
+}<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#121620">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Rahul Choudhary | Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -586,6 +701,15 @@
             border-left: 3px solid var(--color-accent);
             margin-bottom: var(--spacing-lg);
             color: var(--color-text-secondary);
+            border-radius: 0 3px 3px 0;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-note:hover {
+            transform: translateX(-5px);
+            border-left-width: 5px;
         }
 
         .sidebar-title {
@@ -593,6 +717,7 @@
             font-size: 1.2rem;
             margin-bottom: var(--spacing-sm);
             color: var(--color-accent);
+            letter-spacing: 0.01em;
         }
 
         /* Project Cards */
@@ -600,6 +725,27 @@
             border-top: 1px solid var(--color-border);
             padding: var(--spacing-xl) 0;
             margin-bottom: var(--spacing-xl);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateX(5px);
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            width: 100px;
         }
 
         .project-title {
@@ -634,28 +780,55 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--color-text);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 200;
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
         @media (max-width: 767px) {
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 right: 0;
+                bottom: 0;
                 background-color: var(--color-bg);
                 flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 padding: var(--spacing-lg);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 z-index: 100;
+                animation: fadeIn 0.3s ease;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
             }
 
             .nav-links.active {
                 display: flex;
+            }
+
+            .nav-link {
+                margin: var(--spacing-md) 0;
+                font-size: 1.25rem;
+                padding: var(--spacing-md) var(--spacing-lg);
             }
         }
     </style>
@@ -889,6 +1062,13 @@
 
         menuButton.addEventListener('click', function() {
             navLinks.classList.toggle('active');
+
+            // Toggle scroll on body when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
 
         // Close menu when clicking on a link
@@ -896,6 +1076,38 @@
         links.forEach(link => {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Check if device supports hover
+        function updateHoverClass() {
+            const hasHover = window.matchMedia('(hover: hover)').matches;
+            document.body.classList.toggle('has-hover', hasHover);
+        }
+
+        // Call initially and on window resize
+        updateHoverClass();
+        window.addEventListener('resize', updateHoverClass);
+
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerOffset = 60;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     });
