@@ -50,18 +50,56 @@
 .feature-box {
     background-color: var(--color-surface);
     padding: var(--spacing-xl);
-    margin: var(--spacing-lg) 0;
     position: relative;
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-md);
     transition: transform var(--transition-default), box-shadow var(--transition-default);
     border-top: 1px solid var(--color-border-light);
     border-left: 1px solid var(--color-border-light);
+    overflow: hidden;
 }
 
 .feature-box:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+}
+
+.feature-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+    opacity: 0.5;
+    transform: translateY(3px);
+    transition: transform var(--transition-default);
+}
+
+.feature-box:hover::after {
+    transform: translateY(0);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-md);
+    display: inline-block;
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    background-color: rgba(93, 156, 236, 0.1);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-default);
+}
+
+.feature-box:hover .feature-icon {
+    transform: scale(1.1);
+    background-color: rgba(93, 156, 236, 0.2);
 }
 
 .feature-box-title {
@@ -71,16 +109,11 @@
     position: relative;
     display: inline-block;
     color: var(--color-text);
+    letter-spacing: -0.01em;
 }
 
-.feature-box-title::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background-color: var(--color-accent);
+.feature-box p {
+    margin-bottom: 0;
 }
 
 /* Tags */
@@ -174,6 +207,35 @@
     font-size: 1.8rem;
     margin-bottom: var(--spacing-md);
     color: var(--color-text);
+}
+
+/* Fascinations Section Styling */
+#fascinations {
+    padding: var(--spacing-xxl) 0;
+    position: relative;
+}
+
+.fascination-intro {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-family: var(--font-accent);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.fascination-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.quote-container {
+    max-width: 800px;
+    margin: var(--spacing-xl) auto 0;
 }
 
 /* New Contact Section Styling */
@@ -277,7 +339,35 @@
     transform: translateX(0);
 }
 
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .fascination-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .fascination-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 767px) {
+    .fascination-intro {
+        font-size: 1.1rem;
+        padding: 0 var(--spacing-md);
+    }
+
+    .feature-box {
+        padding: var(--spacing-lg);
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
     .contact-text {
         font-size: 1rem;
     }

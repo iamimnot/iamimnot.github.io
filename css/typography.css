@@ -59,8 +59,8 @@ h3 {
 p {
     margin-bottom: var(--spacing-md);
     font-size: 1.125rem;
-    line-height: 1.75; /* Slightly increased for Inter */
-    letter-spacing: 0; /* Inter works better with default letter spacing */
+    line-height: 1.75; /* Slightly increased for Nunito Sans */
+    letter-spacing: 0; /* Nunito Sans works better with default letter spacing */
     font-kerning: normal;
     text-rendering: optimizeLegibility;
 }
