@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Choudhary</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Rahul Choudhary | A Journey in Code</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
         
@@ -122,13 +119,14 @@
         li {
             margin-bottom: 10px;
             position: relative;
+            padding-left: 20px;
         }
         
         li::before {
             content: "—";
             color: var(--accent-color);
             position: absolute;
-            left: -20px;
+            left: 0;
         }
         
         .date {
@@ -159,23 +157,11 @@
             border: 1px solid var(--border-color);
         }
         
-        .job {
-            margin-bottom: 50px;
-        }
-        
-        .job-title {
-            font-weight: 500;
-            color: var(--accent-color);
-        }
-        
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .skill-category {
-            flex: 1 1 300px;
+        .quote {
+            font-style: italic;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 20px;
+            margin: 30px 0;
         }
         
         footer {
@@ -217,100 +203,51 @@
 <body>
     <header>
         <h1>Rahul Choudhary</h1>
-        <p>Full Stack Developer</p>
+        <p>A Journey in Code and Curiosity</p>
         <nav>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
+            <a href="#journey">My Journey</a>
+            <a href="#interests">Interests</a>
             <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
+            <a href="#thoughts">Thoughts</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section id="about">
-        <h2>About</h2>
-        <p>I'm a Full Stack Developer based in Hyderabad, India, experienced in building scalable applications using modern technologies and architectural patterns. I have expertise in Java, Rust, Python, and JavaScript, with a focus on creating robust backend services and intuitive user interfaces.</p>
-        <p>I enjoy tackling complex problems and have a passion for writing clean, maintainable code. My experience spans across different domains including knowledge graphs, cloud services, and enterprise applications.</p>
-        <p>Currently seeking opportunities to contribute to innovative projects that challenge me to grow and expand my skillset.</p>
+    <section id="journey">
+        <h2>My Journey</h2>
+        <p>My love affair with computers began in childhood, but my path wasn't straightforward. I studied mechanical engineering at K.L. University, where options for computer science were limited in my region. It was during my third year when I discovered a specialized course in Data Structures and Algorithms that changed everything.</p>
+        
+        <p>Working twice as hard as my classmates, I became the only mechanical engineering student to secure a software developer position after graduation. This transition from mechanical engineering to becoming a self-taught developer has shaped how I approach problems—with a blend of analytical mechanical thinking and creative coding solutions.</p>
+        
+        <p>I still remember the exact moment when I realized my self-taught knowledge wasn't enough. It was late at night at Beamx Techlabs, struggling with optimizing queries for a knowledge graph application. Despite hours researching online and trying different approaches, the solution remained elusive. This humbling experience became a turning point in my journey.</p>
+        
+        <p>Now, I'm constantly exploring the boundaries of my knowledge, particularly in graph databases, distributed systems, and artificial intelligence. Each challenge has become an opportunity to delve deeper into the theoretical foundations that underpin our technological world.</p>
     </section>
 
-    <section id="experience">
-        <h2>Experience</h2>
+    <section id="interests">
+        <h2>What Drives Me</h2>
         
-        <div class="job">
-            <h3>Full Stack Software Developer</h3>
-            <div class="date">Beamx Techlabs, Hyderabad | Nov 2022 – Present</div>
-            <p>Working on various projects using modern technologies and architectural patterns. Leading development teams and implementing robust solutions across different domains.</p>
-            
-            <h3>Key Projects</h3>
-            
-            <div class="project">
-                <p class="job-title">Axiom Cloud (Email Service)</p>
-                <p>Designed a scalable serverless architecture for an email service using AWS Lambda, SQS, S3, and SES. Developed a Lambda function to process email requests and integrated AWS services to handle high volumes of incoming emails.</p>
-            </div>
-            
-            <div class="project">
-                <p class="job-title">Knowledge Graph POC (Cars Schema)</p>
-                <p>Developed a knowledge graph application using Rust and the Axum framework, demonstrating integration with Apache AGE. Implemented the Cars schema from Schema.org, creating node classes and relationships to represent automotive data.</p>
-            </div>
-            
-            <div class="project">
-                <p class="job-title">W6H (Knowledge Graph Application)</p>
-                <p>Built a RESTful API using Rust and Axum, providing access to graph data in Apache AGE and document data in CouchDB. Implemented full-text search with MeiliSearch, enabling efficient data retrieval across multiple databases.</p>
-            </div>
-            
-            <div class="project">
-                <p class="job-title">Signet Project</p>
-                <p>Developed MVC architecture applications with RESTful APIs and JWT authentication. Pioneered Multi-Tenant Architecture implementation and orchestrated deployments on Tomcat and Nginx.</p>
-            </div>
-            
-            <div class="project">
-                <p class="job-title">ICL Project</p>
-                <p>Led a team of 5 developers, specializing in API development and authentication. Contributed to database designs and integrated AWS S3 for data storage and management.</p>
-            </div>
-        </div>
+        <h3>Knowledge Graphs & Graph Databases</h3>
+        <p>I'm fascinated by how knowledge graphs represent information in ways that mirror human understanding. My experience working with Apache AGE and implementing graph schemas has shown me both the immense potential and the complex challenges in this field. I'm particularly interested in optimizing graph database queries and developing more efficient knowledge graph technologies.</p>
         
-        <div class="job">
-            <h3>Full Stack Software Developer</h3>
-            <div class="date">Geekbull Consulting, Hyderabad | Nov 2022 – May 2023</div>
-            <p>Started as an intern focusing on API development skills and transitioned to a full-time role as a Full Stack Java Developer.</p>
-            
-            <div class="project">
-                <p class="job-title">ICL Project</p>
-                <p>Specialized in API development, MySQL, Ubuntu, and Postman during the internship. Led Backend Application Development with a focus on RESTful APIs.</p>
-            </div>
-        </div>
+        <h3>Distributed Systems Architecture</h3>
+        <p>The elegance of distributed computing—how independent components work together to create resilient, scalable systems—has captivated my attention. My work with serverless architectures using AWS Lambda has given me practical insights, while leaving me hungry for deeper theoretical understanding of the underlying principles.</p>
+        
+        <h3>Artificial Intelligence & Search Algorithms</h3>
+        <p>I'm drawn to the intersection of AI and information retrieval. Implementing search capabilities with MeiliSearch has shown me how good search transforms user experiences. I'm eager to explore more advanced machine learning approaches to search and recommendation systems that can make information more accessible.</p>
+        
+        <p class="quote">My goal extends beyond personal achievement—I aim to develop more efficient knowledge graph technologies and distributed computing architectures that make advanced AI systems more accessible and sustainable.</p>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
+        <h2>Learning Through Building</h2>
         
         <div class="project">
-            <h3>Axiom Cloud Email Service</h3>
-            <p>A scalable serverless email service architecture using AWS services.</p>
-            <div class="tags">
-                <span class="tag">AWS Lambda</span>
-                <span class="tag">SQS</span>
-                <span class="tag">S3</span>
-                <span class="tag">SES</span>
-                <span class="tag">Python</span>
-            </div>
-        </div>
-        
-        <div class="project">
-            <h3>Knowledge Graph POC</h3>
-            <p>A proof-of-concept knowledge graph application for automotive data.</p>
-            <div class="tags">
-                <span class="tag">Rust</span>
-                <span class="tag">Axum</span>
-                <span class="tag">Apache AGE</span>
-                <span class="tag">Cypher</span>
-            </div>
-        </div>
-        
-        <div class="project">
-            <h3>W6H Knowledge Graph Application</h3>
-            <p>A RESTful API providing access to graph and document data.</p>
+            <h3>W6H: A Journey into Knowledge Graphs</h3>
+            <p>This project began with a simple question: how can we connect structured and unstructured data in more intuitive ways? Using Rust's Axum framework, I built a RESTful API that bridged Apache AGE for graph relationships with CouchDB for document storage.</p>
+            
+            <p>The challenge of learning multiple database paradigms simultaneously and developing efficient cross-database queries pushed me to my limits. When the system successfully scaled to handle over 10,000 daily requests, it was both a professional achievement and a personal revelation about the power of graph-based data models.</p>
+            
             <div class="tags">
                 <span class="tag">Rust</span>
                 <span class="tag">Axum</span>
@@ -321,123 +258,59 @@
         </div>
         
         <div class="project">
-            <h3>Signet Project</h3>
-            <p>MVC architecture application with RESTful APIs and secure authentication.</p>
+            <h3>Axiom Cloud: Lessons in Distributed Systems</h3>
+            <p>What started as a simple email service evolved into a fascinating exploration of asynchronous processing. I designed a serverless architecture using AWS Lambda, SQS, S3, and SES that elegantly handled unpredictable traffic spikes—something I once would have approached with traditional scaling.</p>
+            
+            <p>This project taught me valuable lessons about distributed systems: how components communicate, how to manage state across services, and how to design for failure. Each optimization revealed deeper questions about theoretical concepts I'm now eager to explore more formally.</p>
+            
             <div class="tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">Angular</span>
-                <span class="tag">JWT</span>
-                <span class="tag">Multi-Tenant</span>
+                <span class="tag">AWS Lambda</span>
+                <span class="tag">SQS</span>
+                <span class="tag">S3</span>
+                <span class="tag">SES</span>
+                <span class="tag">Python</span>
             </div>
         </div>
         
         <div class="project">
-            <h3>ICL Project</h3>
-            <p>Enterprise application with focus on API development and authentication.</p>
+            <h3>Knowledge Graph POC: From Theory to Practice</h3>
+            <p>This experimental project allowed me to implement complex graph schemas in a practical context. By adapting the Cars schema from Schema.org, I created a network of nodes and relationships that represented automotive data in ways traditional databases couldn't match.</p>
+            
+            <p>The most rewarding aspect was seeing how naturally graph databases model complex real-world relationships. The challenges I faced with query optimization highlighted the gap between practical implementations and theoretical understanding that I'm working to bridge.</p>
+            
             <div class="tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">MySQL</span>
-                <span class="tag">RESTful APIs</span>
-                <span class="tag">AWS S3</span>
+                <span class="tag">Rust</span>
+                <span class="tag">Axum</span>
+                <span class="tag">Apache AGE</span>
+                <span class="tag">Cypher</span>
             </div>
         </div>
     </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
+    <section id="thoughts">
+        <h2>Reflections & Vision</h2>
         
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Languages</h3>
-                <ul>
-                    <li>Java</li>
-                    <li>Rust</li>
-                    <li>Python</li>
-                    <li>JavaScript / TypeScript</li>
-                    <li>GoLang</li>
-                    <li>Elixir</li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Frameworks</h3>
-                <ul>
-                    <li>Spring Boot / Security / Cloud</li>
-                    <li>Axum & Tokio</li>
-                    <li>Angular</li>
-                    <li>Hibernate</li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Architecture</h3>
-                <ul>
-                    <li>Microservices</li>
-                    <li>Event-driven Architecture</li>
-                    <li>Domain-Driven Design (DDD)</li>
-                    <li>CQRS</li>
-                    <li>API Gateway</li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Databases</h3>
-                <ul>
-                    <li>MySQL</li>
-                    <li>PostgreSQL</li>
-                    <li>MSSQL</li>
-                    <li>Apache AGE</li>
-                    <li>Redis</li>
-                    <li>NoSQL</li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h3>DevOps & Cloud</h3>
-                <ul>
-                    <li>Docker</li>
-                    <li>Kubernetes</li>
-                    <li>CI/CD</li>
-                    <li>AWS (S3, EC2, Lambda)</li>
-                </ul>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Other</h3>
-                <ul>
-                    <li>Kafka & RabbitMQ</li>
-                    <li>RESTful APIs & GraphQL</li>
-                    <li>OAuth2.0 & JWT</li>
-                    <li>Git, Maven, Gradle</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <h3>Bachelor of Technology in Mechanical Engineering</h3>
-        <div class="date">K.L. University, Guntur, Andhra Pradesh | May 2023</div>
-        <p>Studied mechanical engineering concepts while developing programming skills in C/C++, Java, and Python. Gained advanced Data Structures and Algorithms knowledge through the university's Coding Skills Improvement Program.</p>
-    </section>
-
-    <section id="vision">
-        <h2>Professional Vision</h2>
-        <p>I'm a dedicated software developer with a passion for tackling challenges head-on and an insatiable curiosity that drives continuous learning. I adapt quickly to new technologies and methodologies, thriving in dynamic environments that encourage creativity and problem-solving.</p>
-        <p>I aim to contribute my skills to teams that value innovation and embrace the ever-evolving landscape of software development, leveraging my fast-learning abilities and passion for growth in collaborative settings.</p>
+        <h3>The Power of Foundational Knowledge</h3>
+        <p>My journey from self-taught programmer to solutions architect has shown me that while tutorials can teach you syntax, true mastery requires understanding the underlying principles. I've learned that knowing "how" is only the beginning—understanding "why" is what unlocks innovation.</p>
+        
+        <h3>Making Advanced Technology Accessible</h3>
+        <p>I believe that the most powerful technologies should be accessible beyond specialized research environments. My vision is to develop knowledge graph technologies and distributed systems that are not only powerful but also approachable for developers with diverse backgrounds—much like my own.</p>
+        
+        <h3>Continuous Learning as a Way of Life</h3>
+        <p>Beyond my professional work, I maintain a disciplined approach to learning. From exploring Linux systems to studying cloud architecture patterns and new programming languages, I see each exploration as adding another dimension to my understanding of computing.</p>
+        
+        <p class="quote">That moment of frustration when I couldn't solve the knowledge graph query problem wasn't just a professional setback—it was a turning point that clarified my path forward. With determination and curiosity, I continue to seek deeper understanding of the technologies that fascinate me.</p>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
+        <h2>Let's Connect</h2>
+        <p>I'm always interested in discussing knowledge graphs, distributed systems, or anything related to software development. Whether you're working on similar problems or just curious about these topics, I'd love to hear from you.</p>
         <p>Email: <a href="mailto:chrahul861@gmail.com">chrahul861@gmail.com</a></p>
-        <p>Phone: +91 7289977896</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/chrahul861" target="_blank">linkedin.com/in/chrahul861</a></p>
     </section>
 
     <footer>
-        <p>© 2025 Rahul Choudhary</p>
+        <p>© 2025 Rahul Choudhary — A curious mind in constant exploration</p>
     </footer>
 </body>
 </html>
