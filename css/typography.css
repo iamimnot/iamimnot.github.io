@@ -33,8 +33,8 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 900;
-    letter-spacing: -0.02em;
+    font-weight: 800; /* Adjusted for Fraunces */
+    letter-spacing: -0.03em; /* Slightly tighter for Fraunces */
     margin-bottom: var(--spacing-md);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -44,7 +44,7 @@ h2 {
     letter-spacing: -0.01em;
     position: relative;
     margin-bottom: var(--spacing-lg);
-    font-weight: 800;
+    font-weight: 700; /* Adjusted for Fraunces */
 }
 
 h3 {
@@ -59,8 +59,8 @@ h3 {
 p {
     margin-bottom: var(--spacing-md);
     font-size: 1.125rem;
-    line-height: 1.7;
-    letter-spacing: 0.01em;
+    line-height: 1.75; /* Slightly increased for Inter */
+    letter-spacing: 0; /* Inter works better with default letter spacing */
     font-kerning: normal;
     text-rendering: optimizeLegibility;
 }
@@ -116,6 +116,7 @@ a:focus {
     font-family: var(--font-accent);
     font-style: italic;
     font-size: 1.5rem;
+    font-weight: 500; /* Optimized for Lora */
     margin: var(--spacing-lg) 0 var(--spacing-xl);
     color: var(--color-text-secondary);
     max-width: 40ch;
@@ -148,4 +149,50 @@ a:focus {
     margin-bottom: var(--spacing-lg);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+/* Pull Quote optimized for Lora */
+.pull-quote {
+    font-family: var(--font-accent);
+    font-size: 1.8rem;
+    line-height: 1.3;
+    padding: var(--spacing-lg) 0;
+    margin: var(--spacing-xl) 0;
+    position: relative;
+    font-style: italic;
+    font-weight: 600; /* Slightly heavier for Lora */
+    letter-spacing: -0.01em; /* Slight negative tracking for pull quotes */
+    color: var(--color-accent);
+    max-width: 90%;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.pull-quote::before {
+    content: '"';
+    position: absolute;
+    left: -40px;
+    top: 0;
+    font-size: 6rem;
+    color: rgba(93, 156, 236, 0.15);
+    line-height: 1;
+    text-shadow: none;
+}
+
+.pull-quote::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    opacity: 0.3;
+}
+
+@media (min-width: 768px) {
+    .pull-quote {
+        padding-left: var(--spacing-xl);
+        margin-left: -var(--spacing-xl);
+        max-width: 85%;
+    }
 }
