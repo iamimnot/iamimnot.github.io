@@ -47,7 +47,8 @@ function initScrollRevealAnimations() {
         { selector: '.contact-item', animation: 'slide-right', stagger: true },
         { selector: '.article-sidebar > *', animation: 'slide-right', stagger: true },
         { selector: '.section-title-container', animation: 'slide-up', stagger: false },
-        { selector: 'p.drop-cap', animation: 'slide-up', stagger: false }
+        { selector: 'p.drop-cap', animation: 'slide-up', stagger: false },
+        { selector: '.fascination-intro', animation: 'slide-up', stagger: false }
     ];
 
     // Apply reveal classes to elements
@@ -126,7 +127,7 @@ function initMobileNavigation() {
     });
 
     // Close menu when clicking on a link
-    const links = document.querySelectorAll('.nav-link');
+    const links = document.querySelectorAll('.nav-links > a');
     links.forEach(link => {
         link.addEventListener('click', function() {
             navLinks.classList.remove('active');
