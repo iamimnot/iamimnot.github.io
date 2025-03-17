@@ -11,6 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Smooth scrolling for anchor links
     initSmoothScrolling();
+
+    // Initialize animations
+    initAnimations();
+
+    // Initialize scroll animations
+    initScrollAnimations();
 });
 
 /**
@@ -83,28 +89,85 @@ function initSmoothScrolling() {
 }
 
 /**
- * Add intersection observer for animations (optional enhancement)
+ * Initialize page load animations
+ */
+function initAnimations() {
+    // Add animation classes to elements
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.querySelector('h1').classList.add('fadeIn');
+        hero.querySelector('.hero-subtitle').classList.add('slideUp');
+        hero.querySelector('.lead-in').classList.add('slideIn');
+    }
+
+    // Add stagger animations to nav links
+    const navLinks = document.querySelector('.nav-links');
+    if (navLinks) {
+        navLinks.classList.add('stagger-children');
+    }
+
+    // Add animated underline to navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.add('animated-underline');
+    });
+
+    // Reveal section numbers
+    setTimeout(() => {
+        document.querySelectorAll('.section-number').forEach(num => {
+            num.classList.add('revealed');
+        });
+    }, 500);
+
+    // Add typing animation to fascination intro
+    const fascintro = document.querySelector('.fascination-intro');
+    if (fascintro) {
+        fascintro.classList.add('typing-animation');
+    }
+}
+
+/**
+ * Add intersection observer for scroll animations
  */
 function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    // Add animation classes to elements
+    document.querySelectorAll('.feature-box').forEach((element, index) => {
+        element.classList.add('animate-on-scroll', 'slide-up');
+        // Add staggered delay
+        element.style.transitionDelay = `${index * 0.15}s`;
+    });
 
-    if (!animatedElements.length) return;
+    document.querySelectorAll('.project-card').forEach((element, index) => {
+        element.classList.add('animate-on-scroll', 'slide-left');
+        // Add staggered delay
+        element.style.transitionDelay = `${index * 0.15}s`;
+    });
 
+    document.querySelectorAll('.pull-quote').forEach(element => {
+        element.classList.add('animate-on-scroll', 'fade-in');
+    });
+
+    document.querySelectorAll('.contact-item').forEach((element, index) => {
+        element.classList.add('animate-on-scroll', 'slide-right');
+        // Add staggered delay
+        element.style.transitionDelay = `${index * 0.15}s`;
+    });
+
+    // Create intersection observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
+                // Once the animation has played, we can unobserve the element
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
     });
 
-    animatedElements.forEach(element => {
+    // Observe all elements with animation classes
+    document.querySelectorAll('.animate-on-scroll').forEach(element => {
         observer.observe(element);
     });
 }
-
-// Initialize scroll animations if present
-document.addEventListener('DOMContentLoaded', initScrollAnimations);

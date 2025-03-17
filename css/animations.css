@@ -1,0 +1,262 @@
+/* Animations and Motion Effects */
+
+/* Base Animation Variables */
+:root {
+    --animation-fade: 0.8s;
+    --animation-slide: 1s;
+    --animation-delay-interval: 0.15s;
+    --transition-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Initial Load Animations */
+.fadeIn {
+    opacity: 0;
+    animation: fadeIn 1s var(--transition-smooth) forwards;
+}
+
+.slideUp {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.8s var(--transition-smooth) forwards;
+}
+
+.slideIn {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideIn 0.8s var(--transition-smooth) forwards;
+}
+
+/* Apply staggered delays to child elements */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s var(--transition-smooth) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: calc(1 * var(--animation-delay-interval)); }
+.stagger-children > *:nth-child(2) { animation-delay: calc(2 * var(--animation-delay-interval)); }
+.stagger-children > *:nth-child(3) { animation-delay: calc(3 * var(--animation-delay-interval)); }
+.stagger-children > *:nth-child(4) { animation-delay: calc(4 * var(--animation-delay-interval)); }
+.stagger-children > *:nth-child(5) { animation-delay: calc(5 * var(--animation-delay-interval)); }
+
+/* Scroll Animations (with Intersection Observer) */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.8s var(--transition-smooth),
+    transform 0.8s var(--transition-smooth);
+}
+
+.animate-on-scroll.fade-in {
+    opacity: 0;
+    transform: translateY(0);
+}
+
+.animate-on-scroll.slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.animate-on-scroll.slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.animate-on-scroll.slide-right {
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Section Number Animation */
+.section-number {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-number::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg);
+    transform: translateX(0);
+    transition: transform 0.8s var(--transition-smooth) 0.2s;
+    z-index: 1;
+}
+
+.section-number.revealed::after {
+    transform: translateX(100%);
+}
+
+/* Refined Hover Animations */
+.feature-box {
+    transition: transform 0.5s var(--transition-bounce),
+    box-shadow 0.5s var(--transition-smooth);
+}
+
+.feature-box:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+.feature-icon {
+    transition: transform 0.5s var(--transition-bounce),
+    background-color 0.5s var(--transition-smooth);
+}
+
+.feature-box:hover .feature-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Text Underline Animation */
+.animated-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-accent);
+    transition: width 0.4s var(--transition-smooth);
+}
+
+.animated-underline:hover::after {
+    width: 100%;
+}
+
+/* Logo Animation */
+.logo {
+    position: relative;
+    overflow: hidden;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(93, 156, 236, 0.2), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 4s infinite;
+}
+
+/* Pull Quote Animation */
+.pull-quote {
+    position: relative;
+    overflow: hidden;
+}
+
+.pull-quote::before {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Massive Text Animation */
+.massive-text {
+    animation: float 20s ease-in-out infinite,
+    colorShift 15s ease-in-out infinite;
+}
+
+/* Typing Animation for Hero */
+.typing-animation {
+    overflow: hidden;
+    border-right: 2px solid var(--color-accent);
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-10px) translateX(5px); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes colorShift {
+    0%, 100% {
+        background: linear-gradient(135deg, var(--color-accent), transparent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    50% {
+        background: linear-gradient(135deg, var(--color-accent-2), var(--color-accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--color-accent); }
+}
+
+/* Add smooth animations to navigation */
+.nav-link::after {
+    transition: width 0.4s var(--transition-bounce);
+}
+
+/* Smooth animations for project cards */
+.project-card::before {
+    transition: width 0.6s var(--transition-bounce);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
