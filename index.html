@@ -8,68 +8,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Rahul Choudhary | Developer</title>
 
-    <!-- Animation-specific variables -->
-    <style>
-        /* Base animation variables will be added with animations.css */
-        :root {
-            /* Custom properties for animations */
-            --animation-color-1: rgba(93, 156, 236, 0.15);  /* Accent with low opacity */
-            --animation-color-2: rgba(100, 255, 218, 0.1);  /* Accent 2 with low opacity */
-        }
-
-        /* Page transition overlay */
-        .page-transition-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--color-accent);
-            transform: translateX(-100%);
-            z-index: 9999;
-            pointer-events: none;
-            mix-blend-mode: overlay;
-        }
-
-        /* Floating accent shapes for sections */
-        .floating-accent-shape {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--animation-color-1) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -150px;
-            right: -150px;
-            opacity: 0.5;
-            z-index: -1;
-            animation: float 20s ease-in-out infinite alternate;
-        }
-
-        /* Enhance logo with additional effects */
-        .logo {
-            position: relative;
-        }
-
-        .logo::after {
-            content: 'RC';
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: transparent;
-            text-shadow: 0 0 5px var(--color-accent);
-            opacity: 0;
-            filter: blur(4px);
-            transition: opacity 0.3s;
-            z-index: -1;
-        }
-
-        .logo:hover::after {
-            opacity: 0.7;
-        }
-    </style>
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -88,19 +26,19 @@
         <i class="fas fa-bars"></i>
     </button>
     <nav class="nav-links">
-        <a href="#journey" class="nav-link">The Journey</a>
-        <a href="#fascinations" class="nav-link">Fascinations</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#thoughts" class="nav-link">Thoughts</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#journey">The Journey</a>
+        <a href="#fascinations">Fascinations</a>
+        <a href="#projects">Projects</a>
+        <a href="#thoughts">Thoughts</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <section class="hero container">
     <div class="grid hero-content">
         <span class="lead-in">Full Stack Developer</span>
-        <h1 class="split-letters">Rahul Choudhary</h1>
-        <p class="hero-subtitle typing-effect">A curious mind exploring the intersection of distributed systems, knowledge graphs, and search technologies.</p>
+        <h1>Rahul Choudhary</h1>
+        <p class="hero-subtitle">A curious mind exploring the intersection of distributed systems, knowledge graphs, and search technologies.</p>
     </div>
     <div class="massive-text">2025</div>
 </section>
@@ -109,16 +47,15 @@
     <article id="journey" class="article">
         <header class="article-header">
             <div class="section-title-container">
-                <div class="section-number" data-number="01">01</div>
+                <div class="section-number">01</div>
                 <h2>The Journey</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="floating-accent-shape"></div>
         </header>
 
         <div class="article-content">
             <div class="article-text">
-                <p class="drop-cap reveal-text">I never thought I'd end up as a developer. Back in college, I was studying mechanical engineering at K.L. University, drawing machine parts and calculating stress factors. But during my third year, I stumbled upon a Data Structures and Algorithms course that changed everything. I was hooked.</p>
+                <p class="drop-cap">I never thought I'd end up as a developer. Back in college, I was studying mechanical engineering at K.L. University, drawing machine parts and calculating stress factors. But during my third year, I stumbled upon a Data Structures and Algorithms course that changed everything. I was hooked.</p>
 
                 <p>While my classmates were designing engines, I was staying up late teaching myself to code. It paid off when I became the only mechanical engineering student in my class to land a software developer job after graduation. Looking back, I'm grateful for that mechanical background—it gave me a unique way of breaking down complex problems.</p>
 
@@ -144,25 +81,24 @@
         </div>
     </article>
 
-    <!-- Updated Fascinations Section -->
-    <section id="fascinations" class="container section-transition">
+    <!-- Fascinations Section -->
+    <section id="fascinations" class="container">
         <header class="article-header">
             <div class="section-title-container">
-                <div class="section-number" data-number="02">02</div>
+                <div class="section-number">02</div>
                 <h2>Fascinations</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="floating-accent-shape"></div>
         </header>
 
-        <!-- Updated Introduction paragraph with fixed animation -->
+        <!-- Introduction paragraph -->
         <p class="fascination-intro">
             I'm drawn to technologies that connect, distribute, and make information accessible. These interests shape the way I approach problems and build solutions.
         </p>
 
         <!-- Fascination Grid -->
         <div class="fascination-grid">
-            <div class="feature-box card-3d">
+            <div class="feature-box">
                 <div class="feature-icon">
                     <i class="fas fa-project-diagram"></i>
                 </div>
@@ -170,7 +106,7 @@
                 <p>I fell in love with knowledge graphs the first time I saw how they connect information in ways that just make sense. There's something almost magical about watching relationships between data points reveal insights that would stay hidden in traditional databases. I've spent countless hours experimenting with different graph schemas, trying to map out everything from movie recommendations to complex business domains.</p>
             </div>
 
-            <div class="feature-box card-3d">
+            <div class="feature-box">
                 <div class="feature-icon">
                     <i class="fas fa-network-wired"></i>
                 </div>
@@ -178,7 +114,7 @@
                 <p>I'm fascinated by how distributed systems work—these complex networks of services that somehow manage to work together despite all the things that could go wrong. Working with serverless architectures has been like solving an ever-evolving puzzle. How do you make sure everything stays consistent? What happens when something fails? These questions keep me up at night (in a good way).</p>
             </div>
 
-            <div class="feature-box card-3d">
+            <div class="feature-box">
                 <div class="feature-icon">
                     <i class="fas fa-search"></i>
                 </div>
@@ -196,18 +132,17 @@
     </section>
 </main>
 
-<section class="dark-section section-transition">
+<section class="dark-section">
     <div class="container">
         <div class="section-title-container">
-            <div class="section-number" data-number="03">03</div>
+            <div class="section-number">03</div>
             <h2>Things I've Built</h2>
             <div class="section-line"></div>
         </div>
-        <div class="floating-accent-shape"></div>
 
         <div id="projects">
             <div class="project-card">
-                <h3 class="project-title split-letters">Cloud-Native Systems</h3>
+                <h3 class="project-title">Cloud-Native Systems</h3>
                 <div class="project-meta">Where I learned that servers are overrated</div>
                 <p>My journey into serverless architecture started with a simple email service that grew into something much bigger. I've built systems that handle unexpected traffic spikes with ease, communicate through events, and recover gracefully when things go wrong. The best part? Watching something I built scale automatically without having to wake up to restart a server at 3 AM.</p>
 
@@ -221,7 +156,7 @@
             </div>
 
             <div class="project-card">
-                <h3 class="project-title split-letters">Connected Data Experiences</h3>
+                <h3 class="project-title">Connected Data Experiences</h3>
                 <div class="project-meta">Because relationships matter</div>
                 <p>I've built APIs that bring graph databases and document stores together, letting applications navigate complex relationships while still having the rich content people need. My favorite project involved modeling automotive data in a way that connected everything from manufacturers to specific features, making it possible to answer questions no one had even thought to ask yet.</p>
 
@@ -234,7 +169,7 @@
             </div>
 
             <div class="project-card">
-                <h3 class="project-title split-letters">Web Applications</h3>
+                <h3 class="project-title">Web Applications</h3>
                 <div class="project-meta">Where users meet your code</div>
                 <p>I've built web applications that make complex processes feel simple. There's a special satisfaction in watching users interact effortlessly with something you know is doing complicated work behind the scenes. I focus on creating interfaces that stay responsive and intuitive, even when they're talking to multiple services and processing lots of data.</p>
 
@@ -249,27 +184,26 @@
     </div>
 </section>
 
-<section class="container section-transition" id="thoughts">
+<section class="container" id="thoughts">
     <header class="article-header">
         <div class="section-title-container">
-            <div class="section-number" data-number="04">04</div>
+            <div class="section-number">04</div>
             <h2>Reflections</h2>
             <div class="section-line"></div>
         </div>
-        <div class="floating-accent-shape"></div>
     </header>
 
     <div class="article-content">
         <div class="article-text">
-            <h3 class="split-letters">Learning Never Stops</h3>
-            <p class="drop-cap reveal-text">When I switched from mechanical engineering to coding, I thought I just needed to learn a few languages and frameworks. I couldn't have been more wrong. Five years later, I'm still learning something new almost daily. I've realized that knowing how to learn efficiently is far more valuable than any specific knowledge. Every new technology I pick up gives me a fresh perspective on problems I thought I already understood.</p>
+            <h3>Learning Never Stops</h3>
+            <p class="drop-cap">When I switched from mechanical engineering to coding, I thought I just needed to learn a few languages and frameworks. I couldn't have been more wrong. Five years later, I'm still learning something new almost daily. I've realized that knowing how to learn efficiently is far more valuable than any specific knowledge. Every new technology I pick up gives me a fresh perspective on problems I thought I already understood.</p>
 
             <div class="pull-quote">
                 The most rewarding moments in my career haven't been about the technologies I've used, but the problems I've helped solve and the people I've helped along the way.
             </div>
 
-            <h3 class="split-letters">Good Tech Feels Invisible</h3>
-            <p class="reveal-text">The best technologies are ones you barely notice—they just work. I try to bring this principle to everything I build. Coming from a self-taught background made me appreciate well-written documentation and intuitive interfaces. There's a special joy in creating something complex that feels simple to use, whether it's an API that other developers love working with or an application that makes a complicated process feel effortless.</p>
+            <h3>Good Tech Feels Invisible</h3>
+            <p>The best technologies are ones you barely notice—they just work. I try to bring this principle to everything I build. Coming from a self-taught background made me appreciate well-written documentation and intuitive interfaces. There's a special joy in creating something complex that feels simple to use, whether it's an API that other developers love working with or an application that makes a complicated process feel effortless.</p>
         </div>
 
         <div class="article-sidebar">
@@ -287,18 +221,17 @@
     </div>
 </section>
 
-<!-- New Contact Section HTML -->
-<section class="container section-transition" id="contact">
+<!-- Contact Section -->
+<section class="container" id="contact">
     <header class="article-header">
         <div class="section-title-container">
-            <div class="section-number" data-number="05">05</div>
+            <div class="section-number">05</div>
             <h2>Let's Connect</h2>
             <div class="section-line"></div>
         </div>
-        <div class="floating-accent-shape"></div>
     </header>
 
-    <p class="hero-subtitle typing-effect">Have a project in mind? Want to chat about distributed systems or knowledge graphs? Or maybe you're making the same switch from another field to software development? I'd love to connect.</p>
+    <p class="hero-subtitle">Have a project in mind? Want to chat about distributed systems or knowledge graphs? Or maybe you're making the same switch from another field to software development? I'd love to connect.</p>
 
     <div class="contact-interactive">
         <div class="contact-item" data-hover="Send me an email">
@@ -330,12 +263,6 @@
 <footer class="footer">
     <p>© 2025 Rahul Choudhary — Still learning, still building</p>
 </footer>
-
-<!-- Page transition overlay -->
-<div class="page-transition-overlay"></div>
-
-<!-- Scroll progress indicator -->
-<div class="scroll-progress"></div>
 
 <!-- JavaScript Files -->
 <script src="js/main.js"></script>
