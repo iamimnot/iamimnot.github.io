@@ -3,314 +3,766 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Choudhary | A Journey in Code</title>
+    <title>Rahul Choudhary | Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600&display=swap');
+
         :root {
-            --background-color: #0f0f0f;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --accent-color: #9b85ff;
-            --dark-accent: #7a66cc;
-            --border-color: #2a2a2a;
-            --card-bg: #191919;
+            /* Primary color palette */
+            --md-primary: #006495;
+            --md-on-primary: #ffffff;
+            --md-primary-container: #cce5ff;
+            --md-on-primary-container: #001e31;
+
+            /* Secondary color palette */
+            --md-secondary: #535f70;
+            --md-on-secondary: #ffffff;
+            --md-secondary-container: #d7e3f7;
+            --md-on-secondary-container: #101c2b;
+
+            /* Tertiary color palette */
+            --md-tertiary: #6b5778;
+            --md-on-tertiary: #ffffff;
+            --md-tertiary-container: #f2daff;
+            --md-on-tertiary-container: #251431;
+
+            /* Surface colors */
+            --md-surface: #fdfcff;
+            --md-on-surface: #1a1c1e;
+            --md-surface-variant: #dfe2eb;
+            --md-on-surface-variant: #43474e;
+
+            /* Background colors */
+            --md-background: #fdfcff;
+            --md-on-background: #1a1c1e;
+
+            /* Error colors */
+            --md-error: #ba1a1a;
+            --md-on-error: #ffffff;
+            --md-error-container: #ffdad6;
+            --md-on-error-container: #410002;
+
+            /* Outline colors */
+            --md-outline: #73777f;
+            --md-outline-variant: #c3c7cf;
+
+            /* Dark theme colors - we'll use these for our dark mode */
+            --md-dark-primary: #93ccff;
+            --md-dark-on-primary: #003355;
+            --md-dark-primary-container: #004a77;
+            --md-dark-on-primary-container: #cce5ff;
+
+            --md-dark-secondary: #bbc7db;
+            --md-dark-on-secondary: #253141;
+            --md-dark-secondary-container: #3b4858;
+            --md-dark-on-secondary-container: #d7e3f7;
+
+            --md-dark-tertiary: #d6bee4;
+            --md-dark-on-tertiary: #3b2948;
+            --md-dark-tertiary-container: #523f5f;
+            --md-dark-on-tertiary-container: #f2daff;
+
+            --md-dark-surface: #1a1c1e;
+            --md-dark-on-surface: #e2e2e5;
+            --md-dark-surface-variant: #43474e;
+            --md-dark-on-surface-variant: #c3c7cf;
+
+            --md-dark-background: #1a1c1e;
+            --md-dark-on-background: #e2e2e5;
+
+            /* Elevation and surface tints */
+            --md-surface-tint: var(--md-primary);
+            --md-dark-surface-tint: var(--md-dark-primary);
+
+            /* Typography */
+            --md-display-large: 57px;
+            --md-display-medium: 45px;
+            --md-display-small: 36px;
+            --md-headline-large: 32px;
+            --md-headline-medium: 28px;
+            --md-headline-small: 24px;
+            --md-title-large: 22px;
+            --md-title-medium: 16px;
+            --md-title-small: 14px;
+            --md-body-large: 16px;
+            --md-body-medium: 14px;
+            --md-body-small: 12px;
+            --md-label-large: 14px;
+            --md-label-medium: 12px;
+            --md-label-small: 11px;
+
+            /* Elevation shadow values */
+            --md-shadow-1: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+            --md-shadow-2: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+            --md-shadow-3: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.3);
+            --md-shadow-4: 0 6px 10px 4px rgba(0,0,0,0.15), 0 2px 3px rgba(0,0,0,0.3);
+            --md-shadow-5: 0 8px 12px 6px rgba(0,0,0,0.15), 0 4px 4px rgba(0,0,0,0.3);
+
+            /* System colors */
+            --md-scrim: rgba(0,0,0,0.4);
+
+            /* Material Design 3 Shape */
+            --md-shape-small: 4px;
+            --md-shape-medium: 8px;
+            --md-shape-large: 16px;
+            --md-shape-extra-large: 28px;
+
+            /* Animation settings */
+            --md-transition-standard: 0.3s cubic-bezier(0.2, 0.0, 0, 1.0);
+            --md-transition-emphasized: 0.6s cubic-bezier(0.2, 0.0, 0, 1.0);
         }
-        
+
+        /* Dark theme setup */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --md-primary: var(--md-dark-primary);
+                --md-on-primary: var(--md-dark-on-primary);
+                --md-primary-container: var(--md-dark-primary-container);
+                --md-on-primary-container: var(--md-dark-on-primary-container);
+
+                --md-secondary: var(--md-dark-secondary);
+                --md-on-secondary: var(--md-dark-on-secondary);
+                --md-secondary-container: var(--md-dark-secondary-container);
+                --md-on-secondary-container: var(--md-dark-on-secondary-container);
+
+                --md-tertiary: var(--md-dark-tertiary);
+                --md-on-tertiary: var(--md-dark-on-tertiary);
+                --md-tertiary-container: var(--md-dark-tertiary-container);
+                --md-on-tertiary-container: var(--md-dark-on-tertiary-container);
+
+                --md-surface: var(--md-dark-surface);
+                --md-on-surface: var(--md-dark-on-surface);
+                --md-surface-variant: var(--md-dark-surface-variant);
+                --md-on-surface-variant: var(--md-dark-on-surface-variant);
+
+                --md-background: var(--md-dark-background);
+                --md-on-background: var(--md-dark-on-background);
+
+                --md-surface-tint: var(--md-dark-surface-tint);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
+
         body {
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 20px;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.5;
+            color: var(--md-on-background);
+            background-color: var(--md-background);
+            font-size: var(--md-body-large);
+            margin: 0;
+            padding: 0;
         }
-        
+
         a {
-            color: var(--accent-color);
+            color: var(--md-primary);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color var(--md-transition-standard);
         }
-        
+
         a:hover {
-            color: var(--dark-accent);
+            color: var(--md-primary-container);
         }
-        
-        header {
-            padding: 40px 0 20px;
-            margin-bottom: 60px;
-            border-bottom: 1px solid var(--border-color);
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Serif', serif;
+            margin: 0;
+            font-weight: 500;
         }
-        
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 400;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+
+        h1 {
+            font-size: var(--md-headline-large);
+            line-height: 1.2;
         }
-        
-        header p {
-            color: var(--text-muted);
-            font-size: 20px;
-            font-style: italic;
-        }
-        
-        nav {
-            margin-top: 30px;
-        }
-        
-        nav a {
-            margin-right: 25px;
-            color: var(--text-muted);
-            font-size: 17px;
-            font-style: italic;
-            transition: color 0.2s ease;
-        }
-        
-        nav a:hover {
-            color: var(--accent-color);
-        }
-        
-        section {
-            margin-bottom: 70px;
-        }
-        
+
         h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 400;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-            letter-spacing: 0.5px;
+            font-size: var(--md-headline-medium);
+            line-height: 1.2;
+            margin-bottom: 16px;
         }
-        
+
         h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 400;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
+            font-size: var(--md-headline-small);
+            line-height: 1.3;
+            margin-bottom: 12px;
         }
-        
+
         p {
-            margin-bottom: 20px;
-            line-height: 1.7;
+            margin-bottom: 16px;
         }
-        
+
         ul {
             list-style-type: none;
-            margin-left: 5px;
-            margin-bottom: 25px;
+            margin-bottom: 16px;
         }
-        
+
         li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 24px;
         }
-        
+
         li::before {
-            content: "—";
-            color: var(--accent-color);
+            content: "";
             position: absolute;
             left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--md-primary);
         }
-        
-        .date {
-            color: var(--text-muted);
-            font-size: 16px;
-            margin-bottom: 10px;
-            font-style: italic;
+
+        .material-symbols-rounded {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
         }
-        
-        .project {
-            margin-bottom: 40px;
+
+        /* Layout */
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
         }
-        
+
+        .surface {
+            background-color: var(--md-surface);
+            border-radius: var(--md-shape-medium);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--md-shadow-1);
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow var(--md-transition-standard);
+        }
+
+        .surface:hover {
+            box-shadow: var(--md-shadow-2);
+        }
+
+        /* High emphasis surfaces for hero elements */
+        .surface-high {
+            box-shadow: var(--md-shadow-3);
+        }
+
+        .surface-high:hover {
+            box-shadow: var(--md-shadow-4);
+        }
+
+        /* Surface with tonal changes */
+        .surface-primary {
+            background-color: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+        }
+
+        .surface-secondary {
+            background-color: var(--md-secondary-container);
+            color: var(--md-on-secondary-container);
+        }
+
+        .surface-tertiary {
+            background-color: var(--md-tertiary-container);
+            color: var(--md-on-tertiary-container);
+        }
+
+        /* Top App Bar */
+        .top-app-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            background-color: var(--md-surface);
+            box-shadow: var(--md-shadow-2);
+            border-radius: 0 0 var(--md-shape-medium) var(--md-shape-medium);
+            margin-bottom: 24px;
+        }
+
+        .app-title {
+            margin-right: auto;
+            color: var(--md-on-surface);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            border-radius: var(--md-shape-small);
+            transition: background-color var(--md-transition-standard);
+            color: var(--md-on-surface-variant);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: var(--md-label-large);
+        }
+
+        .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--md-on-surface);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 48px 24px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            margin-bottom: 16px;
+            color: var(--md-on-surface);
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: var(--md-body-large);
+            color: var(--md-on-surface-variant);
+            max-width: 700px;
+            margin: 0 auto 24px;
+            line-height: 1.5;
+        }
+
+        /* Content Sections */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header-icon {
+            color: var(--md-primary);
+        }
+
+        .section-title {
+            color: var(--md-on-surface);
+            font-weight: 400;
+        }
+
+        /* Project Cards */
+        .project-card {
+            padding: 24px;
+            border-radius: var(--md-shape-medium);
+            background-color: var(--md-surface);
+            margin-bottom: 24px;
+            box-shadow: var(--md-shadow-1);
+            transition: box-shadow var(--md-transition-standard);
+        }
+
+        .project-card:hover {
+            box-shadow: var(--md-shadow-2);
+        }
+
+        .project-card h3 {
+            color: var(--md-on-surface);
+            margin-bottom: 8px;
+        }
+
+        .project-date {
+            color: var(--md-on-surface-variant);
+            font-size: var(--md-body-medium);
+            margin-bottom: 16px;
+        }
+
+        /* Tags */
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-top: 16px;
         }
-        
+
         .tag {
-            background-color: var(--card-bg);
-            color: var(--text-muted);
-            padding: 5px 12px;
-            font-size: 14px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
+            padding: 4px 12px;
+            border-radius: 16px;
+            background-color: var(--md-secondary-container);
+            color: var(--md-on-secondary-container);
+            font-size: var(--md-label-medium);
         }
-        
+
+        /* Quote */
         .quote {
+            padding: 24px;
+            margin: 32px 0;
+            background-color: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+            border-radius: var(--md-shape-medium);
+            position: relative;
             font-style: italic;
-            border-left: 2px solid var(--accent-color);
-            padding-left: 20px;
-            margin: 30px 0;
+            box-shadow: var(--md-shadow-1);
         }
-        
+
+        .quote::before {
+            content: """;
+            font-size: 60px;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            color: var(--md-primary);
+            opacity: 0.2;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px;
+            background-color: var(--md-surface);
+            border-radius: var(--md-shape-medium);
+            box-shadow: var(--md-shadow-1);
+            transition: transform var(--md-transition-standard), box-shadow var(--md-transition-standard);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--md-shadow-2);
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            color: var(--md-primary);
+            margin-bottom: 16px;
+        }
+
+        .contact-label {
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--md-on-surface);
+        }
+
+        .contact-value {
+            color: var(--md-on-surface-variant);
+        }
+
+        /* Footer */
         footer {
-            margin-top: 100px;
-            padding-top: 20px;
-            padding-bottom: 60px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 16px;
-            font-style: italic;
+            margin-top: 48px;
+            padding: 32px 0;
             text-align: center;
+            color: var(--md-on-surface-variant);
+            font-size: var(--md-body-medium);
+            border-top: 1px solid var(--md-outline-variant);
         }
-        
-        footer p {
-            margin-bottom: 5px;
+
+        /* Two-column layout for larger screens */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
         }
-        
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 28px;
+
+        @media (min-width: 768px) {
+            .two-column {
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            nav {
+
+            .hero {
+                padding: 64px 32px;
+            }
+
+            .surface {
+                padding: 32px;
+            }
+
+            .section {
+                margin-bottom: 64px;
+            }
+
+            .app-container {
+                padding: 32px;
+            }
+        }
+
+        /* Mobile navigation */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--md-on-surface);
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: var(--md-surface);
+                padding: 16px;
+                box-shadow: var(--md-shadow-2);
+            }
+
+            .nav-links.active {
                 display: flex;
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-            
-            nav a {
-                margin-right: 0;
-            }
-            
-            body {
-                font-size: 17px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Rahul Choudhary</h1>
-        <p>A Journey in Code and Curiosity</p>
+<div class="app-container">
+    <!-- Top App Bar -->
+    <header class="top-app-bar">
+        <h1 class="app-title">Rahul Choudhary</h1>
         <nav>
-            <a href="#journey">My Journey</a>
-            <a href="#interests">Interests</a>
-            <a href="#projects">Projects</a>
-            <a href="#thoughts">Thoughts</a>
-            <a href="#contact">Contact</a>
+            <button class="mobile-menu-button">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+            <div class="nav-links">
+                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#interests" class="nav-link">Interests</a>
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#thoughts" class="nav-link">Thoughts</a>
+                <a href="#code" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Connect</a>
+            </div>
         </nav>
     </header>
 
-    <section id="journey">
-        <h2>My Journey</h2>
-        <p>My love affair with computers began in childhood, but my path wasn't straightforward. I studied mechanical engineering at K.L. University, where options for computer science were limited in my region. It was during my third year when I discovered a specialized course in Data Structures and Algorithms that changed everything.</p>
-        
-        <p>Working twice as hard as my classmates, I became the only mechanical engineering student to secure a software developer position after graduation. This transition from mechanical engineering to becoming a self-taught developer has shaped how I approach problems—with a blend of analytical mechanical thinking and creative coding solutions.</p>
-        
-        <p>I still remember the exact moment when I realized my self-taught knowledge wasn't enough. It was late at night at Beamx Techlabs, struggling with optimizing queries for a knowledge graph application. Despite hours researching online and trying different approaches, the solution remained elusive. This humbling experience became a turning point in my journey.</p>
-        
-        <p>Now, I'm constantly exploring the boundaries of my knowledge, particularly in graph databases, distributed systems, and artificial intelligence. Each challenge has become an opportunity to delve deeper into the theoretical foundations that underpin our technological world.</p>
+    <!-- Hero Section -->
+    <section class="hero surface surface-high">
+        <h1>Full Stack Developer</h1>
+        <p>A curious mind exploring the intersection of distributed systems, knowledge graphs, and search technologies.</p>
     </section>
 
-    <section id="interests">
-        <h2>What Drives Me</h2>
-        
-        <h3>Knowledge Graphs & Graph Databases</h3>
-        <p>I'm fascinated by how knowledge graphs represent information in ways that mirror human understanding. My experience working with Apache AGE and implementing graph schemas has shown me both the immense potential and the complex challenges in this field. I'm particularly interested in optimizing graph database queries and developing more efficient knowledge graph technologies.</p>
-        
-        <h3>Distributed Systems Architecture</h3>
-        <p>The elegance of distributed computing—how independent components work together to create resilient, scalable systems—has captivated my attention. My work with serverless architectures using AWS Lambda has given me practical insights, while leaving me hungry for deeper theoretical understanding of the underlying principles.</p>
-        
-        <h3>Artificial Intelligence & Search Algorithms</h3>
-        <p>I'm drawn to the intersection of AI and information retrieval. Implementing search capabilities with MeiliSearch has shown me how good search transforms user experiences. I'm eager to explore more advanced machine learning approaches to search and recommendation systems that can make information more accessible.</p>
-        
-        <p class="quote">My goal extends beyond personal achievement—I aim to develop more efficient knowledge graph technologies and distributed computing architectures that make advanced AI systems more accessible and sustainable.</p>
+    <!-- Journey Section -->
+    <section id="journey" class="section">
+        <div class="section-header">
+            <span class="material-symbols-rounded section-header-icon">timeline</span>
+            <h2 class="section-title">The Journey</h2>
+        </div>
+
+        <div class="surface">
+            <p>My path into software development began in an unconventional way. Despite studying mechanical engineering at K.L. University, my fascination with computers guided me toward a specialized course in Data Structures and Algorithms during my third year. This unexpected detour changed everything, igniting a passion that would define my professional journey.</p>
+
+            <p>Through dedicated self-study and countless late nights of practice, I became the only mechanical engineering student in my class to secure a software developer position after graduation. This transition shaped my unique approach to problem-solving—combining analytical engineering thinking with creative coding solutions.</p>
+
+            <p>Working at Beamx Techlabs as a Full Stack Developer has been a journey of continuous growth. From building RESTful APIs to designing distributed systems, each challenge has pushed me to expand my knowledge. The blend of practical implementation and theoretical exploration keeps me energized and constantly curious about the next frontier in technology.</p>
+        </div>
     </section>
 
-    <section id="projects">
-        <h2>Learning Through Building</h2>
-        
-        <div class="project">
-            <h3>W6H: A Journey into Knowledge Graphs</h3>
-            <p>This project began with a simple question: how can we connect structured and unstructured data in more intuitive ways? Using Rust's Axum framework, I built a RESTful API that bridged Apache AGE for graph relationships with CouchDB for document storage.</p>
-            
-            <p>The challenge of learning multiple database paradigms simultaneously and developing efficient cross-database queries pushed me to my limits. When the system successfully scaled to handle over 10,000 daily requests, it was both a professional achievement and a personal revelation about the power of graph-based data models.</p>
-            
-            <div class="tags">
-                <span class="tag">Rust</span>
-                <span class="tag">Axum</span>
-                <span class="tag">Apache AGE</span>
-                <span class="tag">CouchDB</span>
-                <span class="tag">MeiliSearch</span>
+    <!-- Interests Section -->
+    <section id="interests" class="section">
+        <div class="section-header">
+            <span class="material-symbols-rounded section-header-icon">interests</span>
+            <h2 class="section-title">Fascinations</h2>
+        </div>
+
+        <div class="two-column">
+            <div class="surface">
+                <h3>
+                    <span class="material-symbols-rounded" style="vertical-align: bottom; margin-right: 8px; color: var(--md-primary);">share_reviews</span>
+                    Knowledge Graphs &amp; Data Relationships
+                </h3>
+                <p>I'm captivated by how knowledge graphs represent information in ways that mirror human understanding. There's something deeply satisfying about modeling complex relationships between data points and watching insights emerge from these connections. The potential for knowledge graphs to transform how we organize and access information continues to inspire my work and learning.</p>
+            </div>
+
+            <div class="surface">
+                <h3>
+                    <span class="material-symbols-rounded" style="vertical-align: bottom; margin-right: 8px; color: var(--md-primary);">lan</span>
+                    Distributed Systems &amp; Cloud Architecture
+                </h3>
+                <p>The elegance of distributed computing—how independent components work together to create resilient, scalable systems—has become a central interest in my technical journey. The challenge of designing systems that gracefully handle scale, maintain consistency, and recover from failures presents endless opportunities for learning and innovation.</p>
             </div>
         </div>
-        
-        <div class="project">
-            <h3>Axiom Cloud: Lessons in Distributed Systems</h3>
-            <p>What started as a simple email service evolved into a fascinating exploration of asynchronous processing. I designed a serverless architecture using AWS Lambda, SQS, S3, and SES that elegantly handled unpredictable traffic spikes—something I once would have approached with traditional scaling.</p>
-            
-            <p>This project taught me valuable lessons about distributed systems: how components communicate, how to manage state across services, and how to design for failure. Each optimization revealed deeper questions about theoretical concepts I'm now eager to explore more formally.</p>
-            
+
+        <div class="surface" style="margin-top: 24px;">
+            <h3>
+                <span class="material-symbols-rounded" style="vertical-align: bottom; margin-right: 8px; color: var(--md-primary);">search</span>
+                Search Technology &amp; Information Retrieval
+            </h3>
+            <p>The art and science of making information accessible fascinates me. Good search transforms user experiences and unlocks the value hidden in data. I'm particularly interested in the intersection of search algorithms with machine learning, and how these technologies can make vastly complex information landscapes navigable for everyone.</p>
+
+            <div class="quote">
+                My aim is to bridge theoretical understanding with practical application, making powerful technologies more accessible to developers from diverse backgrounds—much like myself.
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="section">
+        <div class="section-header">
+            <span class="material-symbols-rounded section-header-icon">code</span>
+            <h2 class="section-title">Technical Explorations</h2>
+        </div>
+
+        <div class="project-card">
+            <h3>Distributed Systems &amp; Serverless Architecture</h3>
+            <div class="project-date">Building cloud-native applications</div>
+            <p>My work with serverless architectures has opened fascinating avenues for creating scalable, resilient systems. By leveraging managed services and event-driven patterns, I've developed applications that elegantly handle unpredictable workloads while maintaining performance and reliability.</p>
+
             <div class="tags">
-                <span class="tag">AWS Lambda</span>
-                <span class="tag">SQS</span>
-                <span class="tag">S3</span>
-                <span class="tag">SES</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Serverless</span>
+                <span class="tag">Event-driven</span>
                 <span class="tag">Python</span>
+                <span class="tag">Node.js</span>
             </div>
         </div>
-        
-        <div class="project">
-            <h3>Knowledge Graph POC: From Theory to Practice</h3>
-            <p>This experimental project allowed me to implement complex graph schemas in a practical context. By adapting the Cars schema from Schema.org, I created a network of nodes and relationships that represented automotive data in ways traditional databases couldn't match.</p>
-            
-            <p>The most rewarding aspect was seeing how naturally graph databases model complex real-world relationships. The challenges I faced with query optimization highlighted the gap between practical implementations and theoretical understanding that I'm working to bridge.</p>
-            
+
+        <div class="project-card">
+            <h3>Graph Database Implementations</h3>
+            <div class="project-date">Exploring connected data models</div>
+            <p>Graph databases have become a particular area of interest as I explore better ways to model complex, interconnected data. Their natural representation of relationships offers powerful alternatives to traditional relational models, especially for domains with rich, varied connections between entities.</p>
+
             <div class="tags">
                 <span class="tag">Rust</span>
-                <span class="tag">Axum</span>
-                <span class="tag">Apache AGE</span>
-                <span class="tag">Cypher</span>
+                <span class="tag">Graph Databases</span>
+                <span class="tag">API Design</span>
+                <span class="tag">Query Optimization</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Web Application Development</h3>
+            <div class="project-date">Building intuitive user experiences</div>
+            <p>Creating web applications that balance technical sophistication with intuitive user experiences remains a core aspect of my work. I believe in thoughtful architecture that enables both performance and maintainability, while delivering interfaces that feel natural and accessible to users.</p>
+
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">Angular</span>
+                <span class="tag">RESTful APIs</span>
             </div>
         </div>
     </section>
 
-    <section id="thoughts">
-        <h2>Reflections & Vision</h2>
-        
-        <h3>The Power of Foundational Knowledge</h3>
-        <p>My journey from self-taught programmer to solutions architect has shown me that while tutorials can teach you syntax, true mastery requires understanding the underlying principles. I've learned that knowing "how" is only the beginning—understanding "why" is what unlocks innovation.</p>
-        
-        <h3>Making Advanced Technology Accessible</h3>
-        <p>I believe that the most powerful technologies should be accessible beyond specialized research environments. My vision is to develop knowledge graph technologies and distributed systems that are not only powerful but also approachable for developers with diverse backgrounds—much like my own.</p>
-        
-        <h3>Continuous Learning as a Way of Life</h3>
-        <p>Beyond my professional work, I maintain a disciplined approach to learning. From exploring Linux systems to studying cloud architecture patterns and new programming languages, I see each exploration as adding another dimension to my understanding of computing.</p>
-        
-        <p class="quote">That moment of frustration when I couldn't solve the knowledge graph query problem wasn't just a professional setback—it was a turning point that clarified my path forward. With determination and curiosity, I continue to seek deeper understanding of the technologies that fascinate me.</p>
+    <!-- Thoughts Section -->
+    <section id="thoughts" class="section">
+        <div class="section-header">
+            <span class="material-symbols-rounded section-header-icon">psychology</span>
+            <h2 class="section-title">Reflections</h2>
+        </div>
+
+        <div class="surface">
+            <h3>On Learning &amp; Growth</h3>
+            <p>The journey from mechanical engineering to software development has taught me that the most valuable skill is not knowledge itself, but the ability to learn continuously. Each technology I master becomes not just a tool, but a lens through which I can understand and solve more complex problems. I've found that cross-disciplinary thinking often leads to the most innovative solutions.</p>
+
+            <h3>On Technology &amp; Accessibility</h3>
+            <p>I believe that technology should empower people regardless of their background. My own path as a self-taught developer has made me passionate about creating systems and documentation that are approachable and well-designed. Great technology isn't just powerful—it's accessible, understandable, and thoughtfully crafted.</p>
+
+            <div class="quote">
+                The most exciting aspect of software development isn't the technology itself, but the possibilities it creates—the problems it can solve and the experiences it can enable. This perspective keeps me curious and eager to explore what's possible.
+            </div>
+        </div>
     </section>
 
-    <section id="contact">
-        <h2>Let's Connect</h2>
-        <p>I'm always interested in discussing knowledge graphs, distributed systems, or anything related to software development. Whether you're working on similar problems or just curious about these topics, I'd love to hear from you.</p>
-        <p>Email: <a href="mailto:chrahul861@gmail.com">chrahul861@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/chrahul861" target="_blank">linkedin.com/in/chrahul861</a></p>
+    <!-- Code & Projects Section -->
+    <section id="code" class="section">
+        <div class="section-header">
+            <span class="material-symbols-rounded section-header-icon">developer_mode</span>
+            <h2 class="section-title">Code &amp; Projects</h2>
+        </div>
+
+        <div class="surface surface-primary">
+            <p>I believe in the power of open collaboration and knowledge sharing. You can explore my code, projects and contributions on GitHub, where I regularly work on interesting problems and experiments in distributed systems, data visualization, and web development.</p>
+
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="https://github.com/chrahul861" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background-color: var(--md-on-primary-container); color: var(--md-primary-container); border-radius: 24px;">
+                    <span class="material-symbols-rounded">code</span>
+                    View My GitHub Profile
+                </a>
+            </div>
+        </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="section-header">
+            <span class="material-symbols-rounded section-header-icon">contact_page</span>
+            <h2 class="section-title">Connect</h2>
+        </div>
+
+        <div class="surface">
+            <p>I'm always interested in connecting with fellow developers, engineers, and anyone passionate about technology. Whether you're working on similar problems, have questions about my work, or just want to chat about interesting technical challenges, I'd love to hear from you.</p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <span class="material-symbols-rounded contact-icon">mail</span>
+                    <div class="contact-label">Email</div>
+                    <a href="mailto:chrahul861@gmail.com" class="contact-value">chrahul861@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <span class="material-symbols-rounded contact-icon">person</span>
+                    <div class="contact-label">LinkedIn</div>
+                    <a href="https://www.linkedin.com/in/chrahul861" target="_blank" class="contact-value">linkedin.com/in/chrahul861</a>
+                </div>
+
+                <div class="contact-card">
+                    <span class="material-symbols-rounded contact-icon">location_on</span>
+                    <div class="contact-label">Location</div>
+                    <div class="contact-value">Hyderabad, India</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <p>© 2025 Rahul Choudhary — A curious mind in constant exploration</p>
     </footer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.querySelector('.mobile-menu-button');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuButton.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Add smooth hover effect to cards
+        const cards = document.querySelectorAll('.surface, .project-card, .contact-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'box-shadow var(--md-transition-standard), transform var(--md-transition-standard)';
+            });
+        });
+    });
+</script>
 </body>
 </html>
