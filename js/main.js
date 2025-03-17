@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize text splitting animations
     initTextSplitting();
 
+    // Initialize typing animations (includes fix for fascination intro)
+    initTypingAnimations();
+
     // Initialize 3D card effect
     init3DCardEffect();
 });
@@ -35,9 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
  * Create progress bar that shows scroll position
  */
 function createScrollProgressBar() {
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    document.body.appendChild(progressBar);
+    const progressBar = document.querySelector('.scroll-progress');
+    if (!progressBar) return;
 
     window.addEventListener('scroll', () => {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -170,6 +172,41 @@ function initSmoothScrolling() {
 }
 
 /**
+ * Initialize typing animations
+ */
+function initTypingAnimations() {
+    // Handle generic typing effects
+    document.querySelectorAll('.typing-effect:not(.fascination-intro)').forEach(element => {
+        // Regular typing effect implementation here
+    });
+
+    // Special handling for fascination intro
+    const fascintro = document.querySelector('.fascination-intro');
+    if (fascintro) {
+        // Create an observer specifically for the fascination intro
+        const fascIntroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        // Add the active class to trigger animation
+                        fascintro.classList.add('typing-active');
+
+                        // After animation completes, add the complete class
+                        setTimeout(() => {
+                            fascintro.classList.add('typing-complete');
+                        }, 4000); // Match the animation duration in CSS
+                    }, 300); // Small delay before starting
+
+                    fascIntroObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fascIntroObserver.observe(fascintro);
+    }
+}
+
+/**
  * Initialize text splitting animations (letter by letter)
  */
 function initTextSplitting() {
@@ -232,13 +269,20 @@ function initAnimations() {
     // Add animation classes to elements
     const hero = document.querySelector('.hero');
     if (hero) {
-        hero.querySelector('h1').classList.add('split-letters');
-        setTimeout(() => {
-            hero.querySelector('h1').classList.add('revealed');
-        }, 300);
+        if (hero.querySelector('h1')) {
+            hero.querySelector('h1').classList.add('split-letters');
+            setTimeout(() => {
+                hero.querySelector('h1').classList.add('revealed');
+            }, 300);
+        }
 
-        hero.querySelector('.hero-subtitle').classList.add('typing-effect');
-        hero.querySelector('.lead-in').classList.add('slideIn');
+        if (hero.querySelector('.hero-subtitle')) {
+            hero.querySelector('.hero-subtitle').classList.add('typing-effect');
+        }
+
+        if (hero.querySelector('.lead-in')) {
+            hero.querySelector('.lead-in').classList.add('slideIn');
+        }
     }
 
     // Add section transition effects
@@ -279,12 +323,6 @@ function initAnimations() {
             element.classList.add('revealed');
         }, 800);
     });
-
-    // Make fascination intro a typing effect
-    const fascintro = document.querySelector('.fascination-intro');
-    if (fascintro) {
-        fascintro.classList.add('typing-effect');
-    }
 }
 
 /**

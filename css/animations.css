@@ -237,6 +237,8 @@ body {
 }
 
 /* ==== Text Animation Effects ==== */
+
+/* Typing animation for generic elements */
 .typing-effect {
     overflow: hidden;
     white-space: nowrap;
@@ -245,6 +247,50 @@ body {
     animation: typing 3.5s steps(30, end) forwards,
     blink-caret 0.75s step-end infinite;
     animation-delay: 0.5s;
+}
+
+/* Fix for the fascination intro typing animation */
+.fascination-intro {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    position: relative;
+}
+
+/* Fix for animation - using clip-path instead of width */
+.fascination-intro.typing-active {
+    clip-path: inset(0 100% 0 0);
+    animation: typingFascination 4s steps(80, end) forwards;
+}
+
+/* Custom animation for fascination intro */
+@keyframes typingFascination {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+/* Custom typing cursor for fascination intro */
+.fascination-intro::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    bottom: 0;
+    color: var(--color-accent);
+    animation: blink-caret 0.75s step-end infinite;
+    display: none;
+}
+
+.fascination-intro.typing-active::after {
+    display: inline-block;
+}
+
+.fascination-intro.typing-complete::after {
+    display: none;
 }
 
 @keyframes typing {
