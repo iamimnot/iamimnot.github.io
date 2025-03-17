@@ -66,11 +66,18 @@
             transition: all 0.3s ease;
             border-bottom: 1px dotted rgba(93, 156, 236, 0.3);
             padding-bottom: 1px;
+            position: relative;
+            z-index: 1;
         }
 
         a:hover {
             color: var(--color-accent-2);
             border-bottom: 1px solid var(--color-accent-2);
+        }
+
+        a:focus {
+            outline: 2px dotted var(--color-accent);
+            outline-offset: 2px;
         }
 
         /* Typography */
@@ -87,6 +94,7 @@
             font-weight: 900;
             letter-spacing: -0.02em;
             margin-bottom: var(--spacing-md);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
@@ -94,18 +102,24 @@
             letter-spacing: -0.01em;
             position: relative;
             margin-bottom: var(--spacing-lg);
+            font-weight: 800;
         }
 
         h3 {
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-family: var(--font-accent);
             margin: var(--spacing-lg) 0 var(--spacing-md);
+            font-weight: 600;
+            letter-spacing: 0.01em;
         }
 
         p {
             margin-bottom: var(--spacing-md);
             font-size: 1.125rem;
             line-height: 1.7;
+            letter-spacing: 0.01em;
+            font-kerning: normal;
+            text-rendering: optimizeLegibility;
         }
 
         .small-caps {
@@ -163,16 +177,29 @@
             font-size: 1.5rem;
             position: relative;
             color: var(--color-text);
+            letter-spacing: -0.02em;
+            padding: 0.25rem 0.5rem;
+            margin-left: -0.5rem;
+            transition: transform 0.3s ease;
         }
 
         .logo::after {
             content: "";
             position: absolute;
             bottom: -3px;
-            left: 0;
-            width: 30%;
+            left: 0.5rem;
+            width: 30px;
             height: 3px;
             background-color: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo:hover::after {
+            width: 50px;
         }
 
         .nav-links {
@@ -190,6 +217,7 @@
             position: relative;
             border-bottom: none;
             padding: var(--spacing-xs) var(--spacing-sm);
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-link::after {
@@ -206,6 +234,7 @@
         .nav-link:hover {
             color: var(--color-accent);
             border-bottom: none;
+            transform: translateY(-2px);
         }
 
         .nav-link:hover::after {
@@ -269,6 +298,8 @@
             color: var(--color-accent);
             margin-right: var(--spacing-md);
             opacity: 0.8;
+            position: relative;
+            top: 0.1em;
         }
 
         .section-line {
@@ -276,6 +307,19 @@
             height: 1px;
             background-color: var(--color-border);
             margin-left: var(--spacing-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-line::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            opacity: 0.2;
         }
 
         /* Article styling */
@@ -335,6 +379,7 @@
             font-weight: 500;
             color: var(--color-accent);
             max-width: 90%;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .pull-quote::before {
@@ -345,6 +390,18 @@
             font-size: 6rem;
             color: rgba(93, 156, 236, 0.15);
             line-height: 1;
+            text-shadow: none;
+        }
+
+        .pull-quote::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 40%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            opacity: 0.3;
         }
 
         @media (min-width: 768px) {
@@ -361,8 +418,16 @@
             padding: var(--spacing-xl);
             margin: var(--spacing-lg) 0;
             position: relative;
-            border-radius: 2px;
+            border-radius: 3px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-left: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
         }
 
         .feature-box-title {
@@ -400,6 +465,16 @@
             border-radius: 2px;
             color: var(--color-text-secondary);
             border: 1px solid var(--color-border);
+            transition: all 0.2s ease;
+            display: inline-block;
+            line-height: 1.4;
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
         }
 
         /* Two Column Layout */
@@ -435,14 +510,32 @@
             border: 1px solid var(--color-border);
             transition: all 0.3s ease;
             background-color: var(--color-surface);
-            border-radius: 2px;
+            border-radius: 3px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-accent);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
         }
 
         .contact-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             border-color: var(--color-accent);
+        }
+
+        .contact-card:hover::before {
+            transform: translateY(0);
         }
 
         .contact-icon {
