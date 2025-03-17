@@ -1,1 +1,443 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Choudhary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+        
+        :root {
+            --background-color: #0f0f0f;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-color: #9b85ff;
+            --dark-accent: #7a66cc;
+            --border-color: #2a2a2a;
+            --card-bg: #191919;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: var(--dark-accent);
+        }
+        
+        header {
+            padding: 40px 0 20px;
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        header p {
+            color: var(--text-muted);
+            font-size: 20px;
+            font-style: italic;
+        }
+        
+        nav {
+            margin-top: 30px;
+        }
+        
+        nav a {
+            margin-right: 25px;
+            color: var(--text-muted);
+            font-size: 17px;
+            font-style: italic;
+            transition: color 0.2s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        section {
+            margin-bottom: 70px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            letter-spacing: 0.5px;
+        }
+        
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 400;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-left: 5px;
+            margin-bottom: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        li::before {
+            content: "—";
+            color: var(--accent-color);
+            position: absolute;
+            left: -20px;
+        }
+        
+        .date {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .project {
+            margin-bottom: 40px;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background-color: var(--card-bg);
+            color: var(--text-muted);
+            padding: 5px 12px;
+            font-size: 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .job {
+            margin-bottom: 50px;
+        }
+        
+        .job-title {
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .skill-category {
+            flex: 1 1 300px;
+        }
+        
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            padding-bottom: 60px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 16px;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+            
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            
+            nav a {
+                margin-right: 0;
+            }
+            
+            body {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rahul Choudhary</h1>
+        <p>Full Stack Developer</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>I'm a Full Stack Developer based in Hyderabad, India, experienced in building scalable applications using modern technologies and architectural patterns. I have expertise in Java, Rust, Python, and JavaScript, with a focus on creating robust backend services and intuitive user interfaces.</p>
+        <p>I enjoy tackling complex problems and have a passion for writing clean, maintainable code. My experience spans across different domains including knowledge graphs, cloud services, and enterprise applications.</p>
+        <p>Currently seeking opportunities to contribute to innovative projects that challenge me to grow and expand my skillset.</p>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        
+        <div class="job">
+            <h3>Full Stack Software Developer</h3>
+            <div class="date">Beamx Techlabs, Hyderabad | Nov 2022 – Present</div>
+            <p>Working on various projects using modern technologies and architectural patterns. Leading development teams and implementing robust solutions across different domains.</p>
+            
+            <h3>Key Projects</h3>
+            
+            <div class="project">
+                <p class="job-title">Axiom Cloud (Email Service)</p>
+                <p>Designed a scalable serverless architecture for an email service using AWS Lambda, SQS, S3, and SES. Developed a Lambda function to process email requests and integrated AWS services to handle high volumes of incoming emails.</p>
+            </div>
+            
+            <div class="project">
+                <p class="job-title">Knowledge Graph POC (Cars Schema)</p>
+                <p>Developed a knowledge graph application using Rust and the Axum framework, demonstrating integration with Apache AGE. Implemented the Cars schema from Schema.org, creating node classes and relationships to represent automotive data.</p>
+            </div>
+            
+            <div class="project">
+                <p class="job-title">W6H (Knowledge Graph Application)</p>
+                <p>Built a RESTful API using Rust and Axum, providing access to graph data in Apache AGE and document data in CouchDB. Implemented full-text search with MeiliSearch, enabling efficient data retrieval across multiple databases.</p>
+            </div>
+            
+            <div class="project">
+                <p class="job-title">Signet Project</p>
+                <p>Developed MVC architecture applications with RESTful APIs and JWT authentication. Pioneered Multi-Tenant Architecture implementation and orchestrated deployments on Tomcat and Nginx.</p>
+            </div>
+            
+            <div class="project">
+                <p class="job-title">ICL Project</p>
+                <p>Led a team of 5 developers, specializing in API development and authentication. Contributed to database designs and integrated AWS S3 for data storage and management.</p>
+            </div>
+        </div>
+        
+        <div class="job">
+            <h3>Full Stack Software Developer</h3>
+            <div class="date">Geekbull Consulting, Hyderabad | Nov 2022 – May 2023</div>
+            <p>Started as an intern focusing on API development skills and transitioned to a full-time role as a Full Stack Java Developer.</p>
+            
+            <div class="project">
+                <p class="job-title">ICL Project</p>
+                <p>Specialized in API development, MySQL, Ubuntu, and Postman during the internship. Led Backend Application Development with a focus on RESTful APIs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        
+        <div class="project">
+            <h3>Axiom Cloud Email Service</h3>
+            <p>A scalable serverless email service architecture using AWS services.</p>
+            <div class="tags">
+                <span class="tag">AWS Lambda</span>
+                <span class="tag">SQS</span>
+                <span class="tag">S3</span>
+                <span class="tag">SES</span>
+                <span class="tag">Python</span>
+            </div>
+        </div>
+        
+        <div class="project">
+            <h3>Knowledge Graph POC</h3>
+            <p>A proof-of-concept knowledge graph application for automotive data.</p>
+            <div class="tags">
+                <span class="tag">Rust</span>
+                <span class="tag">Axum</span>
+                <span class="tag">Apache AGE</span>
+                <span class="tag">Cypher</span>
+            </div>
+        </div>
+        
+        <div class="project">
+            <h3>W6H Knowledge Graph Application</h3>
+            <p>A RESTful API providing access to graph and document data.</p>
+            <div class="tags">
+                <span class="tag">Rust</span>
+                <span class="tag">Axum</span>
+                <span class="tag">Apache AGE</span>
+                <span class="tag">CouchDB</span>
+                <span class="tag">MeiliSearch</span>
+            </div>
+        </div>
+        
+        <div class="project">
+            <h3>Signet Project</h3>
+            <p>MVC architecture application with RESTful APIs and secure authentication.</p>
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">Angular</span>
+                <span class="tag">JWT</span>
+                <span class="tag">Multi-Tenant</span>
+            </div>
+        </div>
+        
+        <div class="project">
+            <h3>ICL Project</h3>
+            <p>Enterprise application with focus on API development and authentication.</p>
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">RESTful APIs</span>
+                <span class="tag">AWS S3</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <ul>
+                    <li>Java</li>
+                    <li>Rust</li>
+                    <li>Python</li>
+                    <li>JavaScript / TypeScript</li>
+                    <li>GoLang</li>
+                    <li>Elixir</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Frameworks</h3>
+                <ul>
+                    <li>Spring Boot / Security / Cloud</li>
+                    <li>Axum & Tokio</li>
+                    <li>Angular</li>
+                    <li>Hibernate</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Architecture</h3>
+                <ul>
+                    <li>Microservices</li>
+                    <li>Event-driven Architecture</li>
+                    <li>Domain-Driven Design (DDD)</li>
+                    <li>CQRS</li>
+                    <li>API Gateway</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Databases</h3>
+                <ul>
+                    <li>MySQL</li>
+                    <li>PostgreSQL</li>
+                    <li>MSSQL</li>
+                    <li>Apache AGE</li>
+                    <li>Redis</li>
+                    <li>NoSQL</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>DevOps & Cloud</h3>
+                <ul>
+                    <li>Docker</li>
+                    <li>Kubernetes</li>
+                    <li>CI/CD</li>
+                    <li>AWS (S3, EC2, Lambda)</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Other</h3>
+                <ul>
+                    <li>Kafka & RabbitMQ</li>
+                    <li>RESTful APIs & GraphQL</li>
+                    <li>OAuth2.0 & JWT</li>
+                    <li>Git, Maven, Gradle</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <h3>Bachelor of Technology in Mechanical Engineering</h3>
+        <div class="date">K.L. University, Guntur, Andhra Pradesh | May 2023</div>
+        <p>Studied mechanical engineering concepts while developing programming skills in C/C++, Java, and Python. Gained advanced Data Structures and Algorithms knowledge through the university's Coding Skills Improvement Program.</p>
+    </section>
+
+    <section id="vision">
+        <h2>Professional Vision</h2>
+        <p>I'm a dedicated software developer with a passion for tackling challenges head-on and an insatiable curiosity that drives continuous learning. I adapt quickly to new technologies and methodologies, thriving in dynamic environments that encourage creativity and problem-solving.</p>
+        <p>I aim to contribute my skills to teams that value innovation and embrace the ever-evolving landscape of software development, leveraging my fast-learning abilities and passion for growth in collaborative settings.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:chrahul861@gmail.com">chrahul861@gmail.com</a></p>
+        <p>Phone: +91 7289977896</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/chrahul861" target="_blank">linkedin.com/in/chrahul861</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Rahul Choudhary</p>
+    </footer>
+</body>
+</html>
